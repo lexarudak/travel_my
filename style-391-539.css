@@ -1,0 +1,930 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+body.block {
+  overflow: hidden;
+}
+
+h1 {
+  display: none;
+}
+
+h2 {
+  margin: 0px;
+  color: rgba(242, 120, 92, 1);
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+h3 {
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 13px;
+  color: #0D606F;
+  margin: 5px 0px 10px;
+}
+
+h4 {
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 38px;
+  color: #0D606F;
+  margin: 0px 0px 30px 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.wrapper {
+  border-radius: 30px;
+  margin: 0 auto;
+  max-width: 840px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.container {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0px 15px;
+}
+
+.buttonWithArrow {
+  display: flex;
+  margin-top: 10px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  width: 92px;
+  height: 30px;
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 1);
+  align-items: center;
+  justify-content: center;
+  padding: 7.5px 12px;
+}
+
+.buttonWithArrow span {
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 6px;
+}
+
+.buttonWithArrow img {
+  width: 10px;
+  height: 10px;
+}
+
+.pcPhotos {
+  display: none;
+}
+
+.copyWrite {
+  display: none;
+}
+
+.blur {
+  transition: 0.3s;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  z-index: 149;
+  background-color: #0d606f00;
+  visibility: hidden;
+}
+
+.blur.active {
+  visibility: visible;
+  z-index: 149;
+  background-color: rgba(0, 0, 0, 0.452);
+}
+
+/* ------------------------------------------------- Mobile Header --------------------------------------------*/
+
+.logoText,
+.loginButton {
+  display: none;
+}
+
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding-top: 43px;
+}
+
+.header {
+  padding-top: 43px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+}
+
+.nav {
+  z-index: 150;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 165px;
+  height: 250px;
+  background: #F2785C;
+  box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+  border-radius: 10px;
+  padding: 44px 15px 30px 44px;
+  transition: 0.4s;
+  overflow: auto;
+  transform: translate(100%, 0px);
+}
+
+nav.active {
+  transform: translate(0px, 0px);
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 106px;
+  height: 176px;
+  margin: 0;
+  padding: 0;
+}
+
+.navList a {
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 35px;
+  height: 32px;
+  margin-right: 5px;
+  border: none;
+  background: none;
+  padding: 8px 4px;
+  transition: 0.4s;
+}
+
+.burger.active {
+  justify-content: space-between;
+  z-index: 300;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transform: translate(-112px, -37px);
+  margin-right: 0;
+  padding: 4.5px;
+}
+
+.burger span {
+  display: block;
+  height: 2.68px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+}
+
+.burger.active span.oneStripe {
+  transform: translate(0px, 10px) rotate(-45deg);
+  width: 21px;
+  height: 1.8px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.burger.active span.twoStripe {
+  display: none;
+}
+
+.burger.active span.threeStripe {
+  transform: translate(0px, -9px) rotate(45deg);
+  width: 21px;
+  height: 1.8px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+/* MAIN --------------------------------------------------------------------------------------------------------------------*/
+
+.main {
+  flex: 1 1 auto;
+}
+
+/* ------------------------------------------------- Mobile Preview --------------------------------------------*/
+
+.preview {
+  height: 251px;
+  margin: 0 auto;
+  background-image: url(pictures/preview-background.jpg);
+}
+
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 142px;
+  background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%);
+}
+
+.previewContainer div {
+  display: none;
+}
+
+.previewForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.previewForm input {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 48px;
+  padding: 16.17px 117.44px 20.72px 16.55px;
+  color: #07323b;
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+
+}
+
+.previewForm button {
+  margin-left: -101px;
+  z-index: 99;
+  width: 92px;
+  height: 30px;
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15px;
+  padding: 7.5px 9px;
+}
+
+::placeholder {
+  color: rgba(242, 120, 92, 1);
+  font-family: 'Aleo', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+/* ------------------------------------------------- Mobile Steps --------------------------------------------*/
+
+.stepsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px auto;
+  width: 100%;
+  height: 153px;
+  align-items: center;
+}
+
+.stepIconsContainer {
+  display: flex;
+  height: 114px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.wrapperForIcons {
+  display: flex;
+  flex-basis: 33.3%;
+  justify-content: center;
+}
+
+.calendar {
+  justify-content: center;
+}
+
+.plain {
+  align-items: flex-end;
+}
+
+.stepIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobilePlaine {
+  align-items: flex-end;
+}
+
+.mobilePlaine div img {
+  width: 40px;
+  height: 30px;
+}
+
+.mobilePlaine span {
+  text-align: end;
+  width: 94px;
+}
+
+.mobileCalendar {
+  align-items: center;
+}
+
+.mobileCalendar div img {
+  width: 35px;
+  height: 35px;
+}
+
+.mobileVelo {
+  align-items: flex-start;
+}
+
+.mobileVelo span {
+  text-align: left;
+  width: 94px;
+}
+
+.mobileVelo div img {
+  width: 35px;
+  height: 31.5px;
+}
+
+.icon {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  background: rgba(242, 120, 92, 1);
+  border-radius: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconText {
+  text-align: center;
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(13, 96, 111, 1);
+}
+
+/* ------------------------------------------------- Mobile Destinations --------------------------------------------*/
+
+.destinationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 289px;
+}
+
+.slider {
+  display: none;
+}
+
+.mobileSlider {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 360px;
+}
+
+.roundCornersWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 360px;
+  height: 210px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+
+.mobileSliderBody {
+  height: 210px;
+  position: relative;
+  width: 1080px;
+}
+
+.mobileSliderBlock {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  z-index: -200;
+}
+
+.mobileSliderBlock img {
+  z-index: -200;
+  border-radius: 16px;
+}
+
+.orderNull {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  transition: 0.4s;
+  z-index: -300;
+  
+}
+
+.orderOne {
+  position: absolute;
+  left: 360px;
+  top: 0px;
+  transition: 0.4s;
+}
+
+.orderTwo {
+  position: absolute;
+  left: 720px;
+  top: 0px;
+  z-index: -300;
+  transition: 0.4s;
+}
+
+.mobileSliderText {
+  margin-top: -210px;
+  padding: 8px 15px;
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+
+.sliderArrows {
+  margin-top: -120px;
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 5px;
+  z-index: 300;
+}
+
+.sliderArrows button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background: none;
+  width: 30px;
+  height: 30px;
+}
+
+.mobileDots {
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 70px;
+  margin-bottom: 12px;
+  z-index: 300;
+}
+
+.mobileDots div {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: rgba(242, 120, 92, 0.5);
+}
+
+.mobileDots div.bright {
+  background-color: rgba(242, 120, 92, 1);
+}
+
+.dots {
+  display: none;
+}
+
+/* ------------------------------------------------- Mobile Stories --------------------------------------------*/
+
+.stories {
+  padding: 1px 0px 0px 0px;
+  margin-top: 49px;
+  height: 693px;
+  background-image: url(pictures/stories-bg.jpg);
+  background-position: 50%;
+}
+
+.storiesContainer {
+  height: 657px;
+  background: rgba(255, 255, 255, 0.7);
+  margin: -30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.storiesBlock {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.oneStory {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 130px;
+}
+
+.oneStory img {
+  filter: drop-shadow(0px 4px 4px #0D606F);
+  border-radius: 16px;
+  margin-right: 10px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+}
+
+.textWrapper p {
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 11px;
+  color: rgba(13, 96, 111, 1);
+}
+
+.textWrapper a {
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 9px;
+  line-height: 11px;
+  text-decoration-line: underline;
+  color: rgba(13, 96, 111, 1);
+}
+
+.seeMore {
+  margin-top: 10px;
+  padding: 7.5px 13.5px;
+  justify-content: left;
+}
+
+/* FOOTER --------------------------------------------------------------------------------------------------------------------*/
+
+.footerContainer {
+  display: flex;
+  height: 65px;
+  margin-top: -65px;
+}
+
+.footerBlocks {
+  display: flex;
+  flex: 1 1 33.33%;
+  align-items: center;
+  justify-content: center;
+}
+
+.none {
+  order: 1;
+}
+
+.sm {
+  order: 2;
+  justify-content: center;
+}
+
+.txt {
+  order: 3;
+}
+
+.footerBlocks span {
+  text-align: center;
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.socialMedia {
+  display: flex;
+  justify-content: space-between;
+  width: 141px;
+  height: 34px;
+  padding: 0;
+}
+
+/* Animation_______________________________________________________________________________________ */
+
+.a-animation {
+  transition-duration: 0.7s;
+}
+
+.a-animation:hover {
+  cursor: pointer;
+  transform: scale(0.8, 0.8);
+}
+
+.animation {
+  transition-duration: 0.7s;
+}
+
+.animation:hover {
+ 
+  transform: scale(0.95, 0.95);
+  cursor: pointer;
+}
+
+.b-animation {
+  transition-duration: 0.7s;
+}
+
+.b-animation:hover {
+  cursor: pointer;
+  color: #0d606fa3;
+}
+
+/* POPUP_______________________________________________________________________________________ */
+
+.login .popupRegisterText {
+  display: none;
+}
+
+.register .popupLoginText {
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  padding: 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(0px, -150%);
+  transition: 0.5s;
+}
+
+.popup.active {
+  transform: translate(0px, 0px);
+}
+
+.popup.active.leftHide {
+  transform: translate(-150%, 0px);
+}
+
+.popupContainer {
+  background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  display: flex;
+  flex-basis: 650px;
+}
+
+.popupForm {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 45px 23px;
+  align-items: center;
+  width: 100%;
+}
+
+.popupForm.register {
+  padding: 25px 45px 23px;
+}
+
+.popupForm.register .fbButton,
+.popupForm.register .googleButton,
+.popupForm.register .or,
+.popupForm.register .forgotYourpassword {
+  display: none;
+
+}
+
+.popupButton {
+  width: 100%;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  min-height: 56px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  height: 0px;
+}
+
+.fbButton {
+  background: #1877F2;
+  color: #FFFFFF;
+}
+
+.fbButton p,
+.googleButton p {
+  margin: 0px 0px 0px 15px;
+}
+
+.googleButton {
+  background: #FFFFFF;
+  color: rgba(13, 96, 111, 1);
+  margin-top: 20px;
+}
+
+.signInButton p {
+  margin: 0;
+}
+
+.signInButton {
+  margin-top: 25px;
+  background: #0D606F;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  color: #FFFFFF;
+  min-height: 54px;
+}
+
+.or {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(13, 96, 111, 0.5);
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.or p {
+  margin: 0px 9px;
+}
+
+.or::before {
+  content: '';
+  background-color: rgba(13, 96, 111, 0.5);
+  height: 1px;
+  width: 100%;
+}
+
+.or::after {
+  content: '';
+  background-color: rgba(13, 96, 111, 0.5);
+  height: 1px;
+  width: 100%;
+}
+
+.inputText {
+  margin: 0px;
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #0D606F;
+  align-self: flex-start;
+}
+
+.passwordText {
+  margin-top: 20px;
+}
+
+.popupInput {
+  background: #FFFFFF;
+  box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  border: 0px;
+  width: 100%;
+  min-height: 54px;
+  margin-top: 5px;
+  outline: none;
+  font-family: 'Red Hat Text', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(13, 96, 111, 1);
+  padding: 0px 15px;
+  text-align: center;
+}
+
+.forgotYourpassword {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 26px;
+  margin: 10px 0px 0px;
+}
+
+.popupLink {
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-decoration-line: underline;
+  color: #0D606F;
+}
+
+.popupLink:visited {
+  color: #0D606F;
+}
+
+.dontHaveAccount {
+  width: 100%;
+  text-align: center;
+  margin: 0px;
+  padding-top: 20px;
+  font-family: 'Aleo', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: rgba(13, 96, 111, 0.5);
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  border-top: 1px solid rgba(13, 96, 111, 0.5);
+}
+
+.popupForm.register .dontHaveAccount {
+  border: 0px;
+}
+
+/* ----------------------------spoiler -------------------*/
+
+.spoiler {
+  display: none;
+}
